@@ -1,0 +1,15 @@
+-- Kütüphane konumları tablosu
+CREATE TABLE library_locations (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    status VARCHAR(50), -- 'Müsait' veya 'Dolu' bilgisi
+    location GEOMETRY(Point, 4326) -- PostGIS formatında koordinat
+);
+
+-- Ders notları tablosu
+CREATE TABLE lecture_notes (
+    id SERIAL PRIMARY KEY,
+    lesson_name VARCHAR(100),
+    url TEXT,
+    user_id INT
+);
