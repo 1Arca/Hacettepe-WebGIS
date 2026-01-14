@@ -1,0 +1,3 @@
+UPDATE library_locations 
+SET location = ST_SetSRID(ST_MakePoint(32.73488, 39.87075), 4326)
+WHERE name = 'Beytepe Kütüphanesi';
