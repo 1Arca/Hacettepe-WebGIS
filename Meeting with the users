@@ -1,0 +1,28 @@
+CREATE EXTENSION postgis;
+
+-- Kullanıcılar Tablosu
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    role VARCHAR(20) NOT NULL
+);
+
+-- Kütüphane Konumu Tablosu
+CREATE TABLE library_locations (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    status VARCHAR(50),
+    location GEOMETRY(Point, 4326)
+);
+
+-- Ders Notları Tablosu
+CREATE TABLE lecture_notes (
+    id SERIAL PRIMARY KEY,
+    lesson_name VARCHAR(100),
+    url TEXT
+);
+
+-- Başlangıç Verisi (Beytepe Kütüphanesi)
+INSERT INTO library_locations (name, status, location)
+VALUES ('Beytepe Kütüphanesi', 'Müsait', ST_SetSRID(ST_MakePoint(32.7373, 39.8676), 4326));
